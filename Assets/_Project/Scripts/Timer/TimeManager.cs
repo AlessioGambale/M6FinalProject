@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TimeManager : MonoBehaviour
+public class TimeManager : GenericSingleton<TimeManager>
 {
     [Header("Events")]
     [SerializeField] private UnityEvent<float> _onTimeChanged;

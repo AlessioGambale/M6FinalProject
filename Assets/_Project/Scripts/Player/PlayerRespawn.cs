@@ -10,7 +10,6 @@ public class PlayerRespawn : MonoBehaviour
 
     [Header("Lives Settings")]
     [SerializeField] private int _maxLives;
-    [SerializeField] private CheckPointManager _checkPointManager;
 
     private LifeController _lifeController;
     private int _currentLives;
@@ -26,7 +25,7 @@ public class PlayerRespawn : MonoBehaviour
     }
     public void Respawn()
     {
-        if(!_checkPointManager.HasCheckPoint()) return;
+        if(!CheckPointManager.Instance.HasCheckPoint()) return;
         _currentLives--;
 
         _onLifeLost.Invoke(_currentLives);
@@ -34,7 +33,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             _onLivesEnded.Invoke();
         }
-        transform.position = _checkPointManager.GetCheckPoint();
+        transform.position = CheckPointManager.Instance.GetCheckPoint();
         _lifeController.RestoreFullHp();
         _playerController.ResetMoveAndRotate();
     }

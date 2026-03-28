@@ -49,18 +49,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289f26ff574856e40b36cfc14b262e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireRange: 10
+  _damage: 10
   _fireRate: 1
   _range: {fileID: 7604451344426887249}
-  waterBulletPrefab: {fileID: 5907269601815052662, guid: e958cb9770ca1f248a39efa0213ad5b7,
-    type: 3}
-  _radius: 0.5
+  _poolType: 1
   _shootPoint:
   - {fileID: 7976185890171373064}
+  _radius: 0.5
+  _fireRange: 10
   _layerMask:
     serializedVersion: 2
     m_Bits: 64
-  _damage: 10
 --- !u!114 &7131058856904447558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,6 +74,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: {fileID: 7604451344426887249}
   _rotationSpeed: 8
+  _canUseY: 0
 --- !u!135 &2774118356429890845
 SphereCollider:
   m_ObjectHideFlags: 0

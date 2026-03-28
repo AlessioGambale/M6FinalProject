@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,66 +16,73 @@ public class DialogueManager : MonoBehaviour
     [Header("Dialogue Content")]
     [SerializeField] private string[] _speakers;
     [SerializeField] private string[] _dialogueTexts;
-    [SerializeField] private float[] _durations; 
+    [SerializeField] private float[] _durations;
 
     private int _currentLineIndex;
-    private float _lineTimer;
     private bool _dialogueActive = false;
+    private Coroutine _dialogueCoroutine;
 
     public void StartDialogue()
     {
+        if (_dialogueActive) return;
+
         _currentLineIndex = 0;
         _dialogueActive = true;
         _onDialogueStart.Invoke();
-        ShowCurrentLine();
+
+        _dialogueCoroutine = StartCoroutine(RunDialogue());
     }
 
-    private void Update()
+    private IEnumerator RunDialogue()
     {
-        if (!_dialogueActive) return;
-
-        if (Input.GetKeyDown(KeyCode.E))
+        while (_currentLineIndex < _dialogueTexts.Length)
         {
-            SkipDialogue();
-            return;
+            ShowCurrentLine();
+
+            float timer = 0f;
+            bool skipped = false;
+
+            while (timer < _durations[_currentLineIndex])
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    skipped = true;
+                    break;
+                }
+                timer += Time.deltaTime;
+                yield return null;
+            }
+
+            if (skipped)
+            {
+                SkipDialogue();
+                yield break;
+            }
+
+            _currentLineIndex++;
         }
 
-        if (HasCurrentLineFinished())
-        {
-            NextLine();
-        }
-    }
-
-    private bool HasCurrentLineFinished()
-    {
-        return Time.time - _lineTimer >= _durations[_currentLineIndex]; 
+        EndDialogue();
     }
 
     private void ShowCurrentLine()
     {
-        _lineTimer = Time.time;
-
-        if (_speakerText) _speakerText.text = _speakers[_currentLineIndex];
-        if (_dialogueText) _dialogueText.text = _dialogueTexts[_currentLineIndex];
+        if (_speakerText) _speakerText.SetText(_speakers[_currentLineIndex]);
+        if (_dialogueText) _dialogueText.SetText(_dialogueTexts[_currentLineIndex]);
     }
 
-    private void NextLine()
-    {
-        _currentLineIndex++;
-
-        if (_currentLineIndex >= _dialogueTexts.Length)
-        {
-            _dialogueActive = false;
-            _onDialogueEnd.Invoke();
-            return;
-        }
-        ShowCurrentLine();
-    }
     private void SkipDialogue()
     {
+        if (_dialogueCoroutine != null)
+            StopCoroutine(_dialogueCoroutine);
+
         _currentLineIndex = _dialogueTexts.Length;
+        EndDialogue();
+    }
+
+    private void EndDialogue()
+    {
         _dialogueActive = false;
         _onDialogueEnd.Invoke();
-        SoundManager.Instance.StopDialogue();
     }
 }

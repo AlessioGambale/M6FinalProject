@@ -3,22 +3,19 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [Header("Shoot Settings")]
-    [SerializeField] protected private float _damage = 10;
-    [SerializeField] protected private float _fireRate = 0f;
+    [SerializeField] protected float _damage = 10;
+    [SerializeField] protected float _fireRate = 0f;
 
     [Header("References")]
-    [SerializeField] protected private DetectionRange _range;
-    [SerializeField] protected private Bullet _bullet;
-    [SerializeField] protected private Transform [] _shootPoint;
+    [SerializeField] protected DetectionRange _range;
+    [SerializeField] protected PoolType _poolType;
+    [SerializeField] protected Transform [] _shootPoint;
 
     [Header("RayCast Settings")]
-    [SerializeField] protected private float _radius = 0.5f;
-    [SerializeField] protected private float _fireRange = 10f;
-    [SerializeField] protected private LayerMask _layerMask;
+    [SerializeField] protected float _radius = 0.5f;
+    [SerializeField] protected float _fireRange = 10f;
+    [SerializeField] protected LayerMask _layerMask;
 
-    [SerializeField] SoundManager _soundManager;
-    
-    
     protected private float _lastShoot = 0f;
 
     protected virtual void Update()
@@ -52,9 +49,13 @@ public class Shooter : MonoBehaviour
 
             if (Physics.SphereCast(shoot.position, _radius, direction, out RaycastHit hitInfo, _fireRange, _layerMask))
             {
-                Bullet clone = Instantiate(_bullet, shoot.position, shoot.rotation);
+                ObjectPool bulletPool = PoolManager.Instance.GetPool(_poolType);
+                PoolableObject obj = bulletPool.GetObject();
+                Bullet clone = obj as Bullet;
+                clone.transform.position = shoot.position;
+                clone.transform.rotation = shoot.rotation;
                 clone.Setup(direction , _damage);
-                _soundManager.PlayShoot();
+                SoundManager.Instance.PlayShoot();
             }
         }
         

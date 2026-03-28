@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CheckPointManager : MonoBehaviour
+public class CheckPointManager : GenericSingleton<CheckPointManager>
 {
     private Vector3 _respawnPoint;
     private bool _hasCheckPoint = false;

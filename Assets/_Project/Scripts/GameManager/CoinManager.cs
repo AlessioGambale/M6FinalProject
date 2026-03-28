@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CoinManager : MonoBehaviour
+public class CoinManager : GenericSingleton<CoinManager>
 {
     [SerializeField] private UnityEvent<int> OnCoinsChange;
     public int Coins { get; private set; }

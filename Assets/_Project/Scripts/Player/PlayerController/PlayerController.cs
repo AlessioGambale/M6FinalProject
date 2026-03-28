@@ -13,7 +13,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private CameraOrbit _camera;
 
-    [SerializeField] private SoundManager _soundManager;
     private int _jumpCount;
 
     private float _speedMultiplier = 1;
@@ -47,7 +46,7 @@ public class PlayerController : MonoBehaviour
         _animController.SetForward(_inputDir.magnitude);
         _inputDir = _camera.ConvertInputToCameraDirection(_inputDir);
     }
-    public void CanRun (bool canRun)
+    public void SetCanRun (bool canRun)
     {
         _canRun = canRun;
     }
@@ -109,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
         HandleInput();
 
-        if (_space) IsJumping();
+        if (_space) TryJumping();
         
         if (_canRun) 
         {
@@ -129,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         SetSpeedMultiplier(1);
     }
-    private void IsJumping()
+    private void TryJumping()
     {
         if (_grcheck._isGrounded)
         {
@@ -140,7 +139,7 @@ public class PlayerController : MonoBehaviour
         if (_jumpCount >= _maxJumps) return;
         _rb.velocity = new Vector3(_rb.velocity.x, _jumpForce , _rb.velocity.z);
         _jumpCount++;
-        _soundManager.PlayJump();
+        SoundManager.Instance.PlayJump();
     }
     public Quaternion RotateTargetTowardsCamera(Vector3 input)
     {

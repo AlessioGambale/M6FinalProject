@@ -1,11 +1,8 @@
-using GLTFast.Schema;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RandomBulletShooter : Shooter
 {
-    [SerializeField] private Bullet[] _bullets; 
+    [SerializeField] private PoolType[] _poolTypes; 
     private int _currentIndex;
 
     protected override void SphereCastShoot()
@@ -24,9 +21,13 @@ public class RandomBulletShooter : Shooter
     }
     private void IstantiateRandomBullet(Vector3 dir , Transform shoot)
     {
-        _currentIndex = Random.Range(0, _bullets.Length);
-        Bullet bulletClone = Instantiate(_bullets[_currentIndex], shoot.position, shoot.rotation);
-        bulletClone.Setup(dir, _damage);
+        _currentIndex = Random.Range(0, _poolTypes.Length);
+        ObjectPool bulletPool = PoolManager.Instance.GetPool(_poolTypes[_currentIndex]);
+        PoolableObject obj = bulletPool.GetObject();
+        Bullet clone = obj as Bullet;
+        clone.transform.position = shoot.position;
+        clone.transform.rotation = shoot.rotation;
+        clone.Setup(dir, _damage);
     }
 }
 

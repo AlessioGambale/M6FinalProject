@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : GenericSingleton<SoundManager>
 {
     [Header("SFX")]
     [SerializeField] private AudioClip _knivesSound;
@@ -28,17 +28,6 @@ public class SoundManager : MonoBehaviour
 
     private float _introTimer = 0f;
     private bool _hasLoopStart = false;
-
-    public static SoundManager Instance { get; private set; }
-    private void Awake ()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-    }
 
     private bool HasIntroFinished()
     {
