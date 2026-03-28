@@ -1,0 +1,11 @@
+Model Information:
+* title:	Red Book
+* source:	https://sketchfab.com/3d-models/red-book-db8307d0cbf54b0a817e46372f5d22c2
+* author:	Inuciian (https://sketchfab.com/Inuciian)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Red Book" (https://sketchfab.com/3d-models/red-book-db8307d0cbf54b0a817e46372f5d22c2) by Inuciian (https://sketchfab.com/Inuciian) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

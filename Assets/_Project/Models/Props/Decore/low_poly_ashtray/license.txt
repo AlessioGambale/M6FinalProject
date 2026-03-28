@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low poly ashtray
+* source:	https://sketchfab.com/3d-models/low-poly-ashtray-17f2e9139ea349faafbce7ad851301ec
+* author:	neverfollow81 (https://sketchfab.com/neverfollow81)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low poly ashtray" (https://sketchfab.com/3d-models/low-poly-ashtray-17f2e9139ea349faafbce7ad851301ec) by neverfollow81 (https://sketchfab.com/neverfollow81) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

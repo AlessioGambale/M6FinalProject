@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cat Burger
+* source:	https://sketchfab.com/3d-models/cat-burger-5dbd2ad2c6dd4f109644d39cc4ec92f9
+* author:	Rika Creature (https://sketchfab.com/rikacreature)
+
+Model License:
+* license type:	CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)
+* requirements:	Author must be credited. No commercial use.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cat Burger" (https://sketchfab.com/3d-models/cat-burger-5dbd2ad2c6dd4f109644d39cc4ec92f9) by Rika Creature (https://sketchfab.com/rikacreature) licensed under CC-BY-NC-4.0 (http://creativecommons.org/licenses/by-nc/4.0/)

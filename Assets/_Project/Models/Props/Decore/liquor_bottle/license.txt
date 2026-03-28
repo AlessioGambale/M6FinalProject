@@ -1,0 +1,11 @@
+Model Information:
+* title:	Liquor Bottle
+* source:	https://sketchfab.com/3d-models/liquor-bottle-f15a5283eeb841ebba69f4223f0d562a
+* author:	brendanp1237 (https://sketchfab.com/brendanp1237)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Liquor Bottle" (https://sketchfab.com/3d-models/liquor-bottle-f15a5283eeb841ebba69f4223f0d562a) by brendanp1237 (https://sketchfab.com/brendanp1237) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Simple Cutting Board (Kitchen Collection)
+* source:	https://sketchfab.com/3d-models/simple-cutting-board-kitchen-collection-47c554254fd24ac29966e71819c2a0be
+* author:	PrimaVodka (https://sketchfab.com/Bastian.Hyldahl)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Simple Cutting Board (Kitchen Collection)" (https://sketchfab.com/3d-models/simple-cutting-board-kitchen-collection-47c554254fd24ac29966e71819c2a0be) by PrimaVodka (https://sketchfab.com/Bastian.Hyldahl) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
