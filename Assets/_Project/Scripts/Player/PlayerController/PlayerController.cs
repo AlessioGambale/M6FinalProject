@@ -28,8 +28,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 _inputDir;
     private AnimationParamHandler _animController;
     
-
-   
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -46,6 +44,7 @@ public class PlayerController : MonoBehaviour
         _animController.SetForward(_inputDir.magnitude);
         _inputDir = _camera.ConvertInputToCameraDirection(_inputDir);
     }
+
     public void SetCanRun (bool canRun)
     {
         _canRun = canRun;

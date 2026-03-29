@@ -56,6 +56,7 @@ public class DialogueManager : MonoBehaviour
             if (skipped)
             {
                 SkipDialogue();
+                SoundManager.Instance.StopDialogue();
                 yield break;
             }
 
