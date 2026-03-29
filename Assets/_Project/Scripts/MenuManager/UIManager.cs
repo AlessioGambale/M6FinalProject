@@ -1,3 +1,4 @@
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,10 +6,14 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] Canvas _canvas;
     [SerializeField] private bool _isActive = false;
+    [SerializeField] private GameObject _winPanel;
+    [SerializeField] private Camera _mainCamera;
+    
     private bool _isUIOpen;
     public bool IsUIOpen => _isUIOpen;
     private void Awake()
     {
+        
         _isUIOpen=false;
         Time.timeScale = 1.0f;
     }
@@ -18,6 +23,16 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         Time.timeScale = 0f;
+
+    }
+
+    public void OpenWinUI()
+    {
+        _isUIOpen = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 1f;
+        _mainCamera.GetComponent<CinemachineBrain>().enabled = false;
     }
     private void Update()
     {
@@ -29,6 +44,7 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;
+        _mainCamera.GetComponent<CinemachineBrain>().enabled = true;
     }
     public void Play()
     {
